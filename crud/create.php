@@ -5,7 +5,8 @@ error_reporting(E_ALL);
 
 // connect to database
 $pdo = new PDO('mysql:host=localhost;port=3306;dbname=product_crud', 'root', 'wasd1234');
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // if cant connect, throw error
+// if cant connect, throw error
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // echo '<pre>';
 // var_dump($_FILES);
@@ -43,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // upload image
         $image = $_FILES['image'] ?? null;
         $imagePath = '';
-        if ($image) {
+        if ($image && $image['tmp_name']) {
 
             // create unique images path using randomString()
             // and uploaded image name.
@@ -66,6 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $statement->bindValue(':price', $price);
         $statement->bindValue(':date', $date);
         $statement->execute();
+        header('Location: index.php');
     }
     
 }
@@ -83,10 +85,7 @@ function randomString($n)
     return $str;
 }
 
-
-
 ?>
-
 
 <!doctype html>
 <html lang="en">
@@ -138,7 +137,5 @@ function randomString($n)
         
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-    
-
     </body>
 </html>
