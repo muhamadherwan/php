@@ -354,4 +354,31 @@ foreach ($person as $key => $value) {
         echo $key.':&nbsp;'.$value.'<br>';
     }
 }
+
+// ============================================
+// Functions
+// ============================================
+
+// function to sum all number using ...$nums
+function sum(...$nums) {
+    $sum = 0;
+    foreach ($nums as $num) $sum += $num; // add the numbers
+    return $sum;
+}
+echo sum(1,2,3,4,5);
+
+echo '<br>';
+
+// same like above but using array_reduce and
+// arrow function ( fn() => {} )
+function sum2(...$nums) {
+    return array_reduce($nums, fn($carry, $n) => $carry + $n);
+}
+echo sum2(1,2,3,4,5);
+
+
+
+
+
+
 ?>
