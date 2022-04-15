@@ -265,4 +265,93 @@ echo'<pre>';
 print_r(array_values($person));
 echo'</pre>';
 
+// ============================================
+// Associative arrays
+// ============================================
+
+$age = 41;
+
+// Ternary if
+echo $age < 22 ? 'young' : 'old';
+echo '<br>';
+
+// shorter ternary
+$myAge = $age ?: 18; // Equivalent of "$age ? $age : 18"
+
+// Null coalescing operator
+$var = isset($name) ? $name : 'Daigo';
+
+// same as above but shorter
+$var = $name ?? 'Daigo';
+
+// switch
+$userRole = 'admin'; // admin, editor, user
+
+switch ($userRole) {
+    case 'admin':
+        echo 'You can do anything<br>';
+        break;
+    case 'editor';
+        echo 'You can edit content<br>';
+        break;
+    case 'user':
+        echo 'You can view posts and comment<br>';
+        break;
+    default:
+        echo 'Unknown role<br>';
+}
+
+// ============================================
+// Loops
+// ============================================
+
+// while
+// while (true) { // Infinite loop: DON'T run this
+//     // Do something constantly
+// }
+
+// Loop with $counter
+$counter = 0; // When counter is 10??
+while ($counter < 10) {
+    echo $counter.'<br>';
+    // if ($counter > 5) break;
+    $counter++;
+}
+
+// do - while
+$counter = 0; // When counter is 10?
+do {
+    // Do some code right here
+    $counter++;
+} while ($counter < 10);
+
+// for
+for ($i = 0; $i < 10; $i++) {
+    echo $i."<br>";
+}
+
+// foreach
+$fruits = ['durian', 'banana', 'manggo'];
+foreach ($fruits as $fruit) {
+    echo $fruit . '<br>';
+}
+
+echo '<br>';
+
+// foreach with index 
+$fruits = ['durian', 'banana', 'manggo'];
+foreach ($fruits as $i => $fruit) {
+    echo $i. ' ' .$fruit . '<br>';
+}
+
+echo '<br>';
+
+// Iterate Over associative array.
+foreach ($person as $key => $value) {
+    if(is_array($value)){
+        echo $key.':&nbsp;'.implode( ",", $value ).'<br>'; 
+    } else {
+        echo $key.':&nbsp;'.$value.'<br>';
+    }
+}
 ?>
