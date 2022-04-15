@@ -143,7 +143,7 @@ a
 <b>long</b> text.";
 echo nl2br($longText).'<br>';
 
-// multiline text, reserve html tag and brek
+// multiline text, reserve html tag and break
 echo nl2br(htmlentities($longText)).'<br>';
 
 // https://www.php.net/manual/en/ref.strings.php
