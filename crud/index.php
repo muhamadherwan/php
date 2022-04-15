@@ -2,10 +2,20 @@
 
 // connect to database
 $pdo = new PDO('mysql:host=localhost;port=3306;dbname=product_crud', 'root', 'wasd1234');
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // if cant connect, throw error
+// if cant connect, throw error
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// read products
-$statement = $pdo->prepare('SELECT * FROM products ORDER BY create_date DESC');
+$search = $_GET['search'] ?? '';
+
+if ($search) {
+    // read products
+    $statement = $pdo->prepare('SELECT * FROM products WHERE title LIKE :title ORDER BY create_date DESC');
+    $statement->bindValue(':title', "%$search%");
+} else {
+    // read products
+    $statement = $pdo->prepare('SELECT * FROM products ORDER BY create_date DESC');
+}
+
 $statement->execute();
 $products = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -37,6 +47,14 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
         <a href="create.php" class="btn btn-success">Create Product</a>
     </p>
 
+    <form>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search Product" name="search"
+            value="<?php echo $search ?>">
+            <button class="btn btn-outline-secondary" type="submit">Search</button>
+        </div>
+    </form>
+
     <table class="table">
   <thead>
     <tr>
@@ -59,7 +77,7 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
             <td><?php echo $product['price'] ?></td>
             <td><?php echo $product['create_date'] ?></td>
             <td>
-                <button type="button" class="btn btn-sm btn-outline-primary">Edit</button> 
+                <a href="update.php?id=<?php echo $product['id']?>" type="button" class="btn btn-sm btn-outline-primary">Edit</a> 
 
                 <form action="delete.php" method="post" style="display:inline-block">
                     <input type="hidden" name="id" value="<?php echo $product['id'] ?>">
