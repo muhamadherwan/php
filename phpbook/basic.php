@@ -1,10 +1,23 @@
 <?php
-// Useful basic reference
-
+// =========================================
+// Useful basic PHP 7 reference
+// =========================================
 
 // =========================================
 // variables
 // =========================================
+
+// Variable types
+/*
+    String
+    Integer
+    Float
+    Boolean
+    Null
+    Array
+    Object
+    Resource
+*/
 
 // get type of variable
 $str = "this is a variable";
@@ -36,6 +49,7 @@ echo Number.'<br>';
 echo SORT_ASC.'<br>';
 echo PHP_INT_MAX.'<br>';
 
+
 // =========================================
 // numbers
 // =========================================
@@ -59,18 +73,68 @@ is_numeric("3g.t"); // false
 
 // number conversion
 $strNumber = '12.23';
-$number = (int)$strNumber;
+$number = (int)$strNumber; // Use floatval(), (int), intval()
 var_dump($number); // return int 12
 echo '<br>';
+
+// Number functions
+echo "abs(-15) " . abs(-15) . '<br>';
+echo "pow(2,  3) " . pow(2, 3) . '<br>';
+echo "sqrt(16) " . sqrt(16) . '<br>';
+echo "max(2, 3) " . max(2, 3) . '<br>';
+echo "min(2, 3) " . min(2, 3) . '<br>';
+echo "round(2.4) " . round(2.4) . '<br>';
+echo "round(2.6) " . round(2.6) . '<br>';
+echo "floor(2.6) " . floor(2.6) . '<br>';
+echo "ceil(2.4) " . ceil(2.4) . '<br>';
+
 
 // format number
 $number = 123456789.1234;
 echo number_format($number, 2, '.', ','); // return 123,456,789.12
 echo '<br>';
 
+// https://www.php.net/manual/en/ref.math.php
+
 // =========================================
 // strings
 // =========================================
+
+// Create simple string
+$name = 'Herwan';
+$string = "Hello, I am $name"; 
+$string2 = 'Hello, I am $name'; 
+echo $string . '<br>'; // return Hello, I am Herwan
+echo $string2 . '<br>'; // return Hello, I am $name
+
+// String concatenation
+echo "Hello " . " World"; // Multiple concatenation . " and PHP";
+
+// String functions
+$string = "    Hello World      ";
+
+echo "1 - " . strlen($string) . '<br>' . PHP_EOL;
+echo "2 - " . trim($string) . '<br>' . PHP_EOL;
+echo "3 - " . ltrim($string) . '<br>' . PHP_EOL;
+echo "4 - " . rtrim($string) . '<br>' . PHP_EOL;
+echo "5 - " . str_word_count($string) . '<br>' . PHP_EOL;
+echo "6 - " . strrev($string) . '<br>' . PHP_EOL;
+echo "7 - " . strtoupper($string) . '<br>' . PHP_EOL;
+echo "8 - " . strtolower($string) . '<br>' . PHP_EOL;
+echo "9 - " . ucfirst('hello') . '<br>' . PHP_EOL;
+echo "10 - " . lcfirst('HELLO') . '<br>' . PHP_EOL;
+echo "11 - " . ucwords('hello world') . '<br>' . PHP_EOL;
+echo "12 - " . strpos($string, 'world') . '<br>' . PHP_EOL; // Change into world
+echo "13 - " . stripos($string, 'world') . '<br>' . PHP_EOL;
+echo "14 - " . substr($string, 8) . '<br>' . PHP_EOL;
+echo "15 - " . str_replace('World', 'PHP', $string) . '<br>' . PHP_EOL;
+echo "16 - " . str_ireplace('world', 'PHP', $string) . '<br>' . PHP_EOL;
+
+$invoiceNumber = 100;
+$invoiceNumber2 = 123456;
+echo str_pad($invoiceNumber, 8, '0', STR_PAD_LEFT) . '<br>' . PHP_EOL;
+echo str_pad($invoiceNumber2, 8, '0', STR_PAD_LEFT) . '<br>' . PHP_EOL;
+echo str_repeat('Hello', 2) . '<br>' . PHP_EOL;
 
 // multiline text and reserve break
 $longText = "
@@ -81,6 +145,8 @@ echo nl2br($longText).'<br>';
 
 // multiline text, reserve html tag and brek
 echo nl2br(htmlentities($longText)).'<br>';
+
+// https://www.php.net/manual/en/ref.strings.php
 
 // =========================================
 // arrays
@@ -147,5 +213,6 @@ sort($fruits);
 // reverse sort array
 rsort($fruits)
 
+// https://www.php.net/manual/en/ref.array.php
 
 ?>
