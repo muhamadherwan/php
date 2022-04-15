@@ -211,8 +211,58 @@ echo '<pre>';var_dump($newArr2);echo '</pre>';
 sort($fruits);
 
 // reverse sort array
-rsort($fruits)
+rsort($fruits);
 
 // https://www.php.net/manual/en/ref.array.php
+
+// ============================================
+// Associative arrays
+// ============================================
+
+// Create an associative array
+$person = [
+    'name' => 'Taylor',
+    'surname' => 'Otwell',
+    'product' => 'Laravel',
+    'hobbies' => ['Games', 'Tennis'],
+];
+
+echo'<pre>'; print_r($person); echo'</pre>';
+
+// get element by key
+echo $person['name'].'<br>';
+
+// set element by key
+$person['car'] = 'agera koenigsegg';
+
+// check if empty set a value
+if (!isset($person['address'])) {
+    $person['address'] = 'unknown';
+}
+
+// Null coalescing assignment operator. // Since PHP 7.4
+// to do same like above
+$person['color'] ??= 'unknown';
+
+// check if array has specific keys
+echo'<pre>'; 
+print_r(isset($person['car'])); // return true if key exist
+echo'</pre>';
+
+// print array keys
+echo'<pre>';
+print_r(array_keys($person));
+echo'</pre>';
+
+// print array values
+echo'<pre>';
+print_r(array_values($person));
+echo'</pre>';
+
+// sort associatiaves arrays by values, by keys
+ksort($person); // ksort, krsort, asort, arsort
+echo'<pre>';
+print_r(array_values($person));
+echo'</pre>';
 
 ?>
