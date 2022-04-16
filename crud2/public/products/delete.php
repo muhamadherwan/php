@@ -1,7 +1,7 @@
 <?php
 
 // connect to database
-require_once "database.php";
+require_once "../../database.php";
 $id = $_POST['id'] ?? null;
 
 if (!$id) {

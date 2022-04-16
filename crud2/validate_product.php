@@ -17,8 +17,8 @@ if (!$price) {
 if (empty($errors)) {
 
     // create image directory to store uploaded images.
-    if (!is_dir('images')) {
-        mkdir('images');
+    if (!is_dir(__Dir__.'public/images')) {
+        mkdir(__Dir__.'public/images');
     }
 
     $image = $_FILES['image'] ?? null;
@@ -27,7 +27,7 @@ if (empty($errors)) {
     if ($image && $image['tmp_name']) {
         // remove image
         if ($product['image']) {
-            unlink($product['image']);
+            unlink(__DIR__.'/public/'.$product['image']);
         } 
 
         // create unique images path using randomString()
@@ -36,9 +36,9 @@ if (empty($errors)) {
 
         // create directory to store the upload images
         // with the images path
-        mkdir(dirname($imagePath));
+        mkdir(dirname(__DIR__.'/public/'.$imagePath));
 
         // stored the uploaded image inside the directory
-        move_uploaded_file($image['tmp_name'], $imagePath);
+        move_uploaded_file($image['tmp_name'], __DIR__.'/public/'.$imagePath);
     }
 }

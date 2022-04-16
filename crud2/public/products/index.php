@@ -1,6 +1,6 @@
 <?php
 
-require_once "database.php";
+require_once "../../database.php";
 
 $search = $_GET['search'] ?? '';
 
@@ -22,7 +22,7 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
-  <?php include_once "views/partials/header.php"; ?>  
+  <?php include_once "../../views/partials/header.php"; ?>  
 
     <h1>Product CRUD</h1>
 
@@ -54,7 +54,7 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
         <tr>
             <th scope="row"><?php echo $i + 1 ?></th>
             <td>
-                <img src="<?php echo $product['image'] ?>" class="thumb-image">
+                <img src="/<?php echo $product['image'] ?>" class="thumb-image">
             </td>
             <td><?php echo $product['title'] ?></td>
             <td><?php echo $product['price'] ?></td>
