@@ -1,0 +1,17 @@
+{
+    "name": "herwan/autoloding",
+    "autoload": {
+        "psr-4": {
+            "app\\": "./app"
+        }
+    },
+    "authors": [
+        {
+            "name": "muhamadherwan",
+            "email": "hello.wanlab@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.4"
+    }
+}
