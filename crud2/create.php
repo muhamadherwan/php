@@ -9,11 +9,6 @@ require_once "database.php";
 // require function
 require_once "function.php"; 
 
-// echo '<pre>';
-// var_dump($_FILES);
-// echo '</pre>';
-// exit;
-
 $errors = [];
 $title = '';
 $description = '';
@@ -25,43 +20,11 @@ $product = [
 // print $_SERVER['REQUEST_METHOD']; 
 // create new product
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $title = $_POST['title'];
-    $description = $_POST['description'];
-    $price = $_POST['price'];
-    $date = date('Y-m-d H:i:s');
 
-    if (!$title) {
-        $errors[] = 'Product title is required';
-    }
-
-    if (!$price) {
-        $errors[] = 'Product price is required';
-    }
-
-    // create image directory to store uploaded images.
-    if (!is_dir('images')) {
-        mkdir('images');
-    }
+    require_once "validate_product.php";
 
     if (empty($errors)) {
 
-        // upload image
-        $image = $_FILES['image'] ?? null;
-        $imagePath = '';
-        if ($image && $image['tmp_name']) {
-
-            // create unique images path using randomString()
-            // and uploaded image name.
-            $imagePath = 'images/'.randomString(8).'/'.$image['name'];
-
-            // create directory to store the upload images
-            // with the images path
-            mkdir(dirname($imagePath));
-
-            // stored the uploaded image inside the directory
-            move_uploaded_file($image['tmp_name'], $imagePath);
-        }
-  
         // insert in db.
         $statement = $pdo->prepare("INSERT INTO products (title, image, description, price, create_date) VALUE (:title, :image, :description, :price, :date)");
 
@@ -69,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $statement->bindValue(':image', $imagePath);
         $statement->bindValue(':description', $description);
         $statement->bindValue(':price', $price);
-        $statement->bindValue(':date', $date);
+        $statement->bindValue(':date', date('Y-m-d H:i:s'));
         $statement->execute();
         header('Location: index.php');
     }
