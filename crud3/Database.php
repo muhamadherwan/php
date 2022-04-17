@@ -8,6 +8,7 @@ class Database {
 
     // props
     public \PDO $pdo;
+    // public $pdo;
 
     public function __construct() {
 
@@ -26,10 +27,10 @@ class Database {
             $statement->bindValue(':title', "%$search%");
         } else {
             // read products
-            $statement = $this->$pdo->prepare('SELECT * FROM products ORDER BY create_date DESC');
+            $statement = $this->pdo->prepare('SELECT * FROM products ORDER BY create_date DESC');
         }
 
         $statement->execute();
-        $products = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 }

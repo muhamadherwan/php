@@ -2,10 +2,23 @@
 
 namespace app\controllers;
 
+use app\Router;
+
 class ProductController {
     
-    public function index() {
-        echo "index page";
+    public function index(Router $router) {
+        
+        // get the data from db
+        $search = $_GET['search'] ?? '';
+        $products = $router->db->getProducts($search);
+
+        // get the page views
+        $router->renderView('products/index',[
+            'products' => $products,
+            'search' => $search
+
+        ]);
+
     }
 
     public function create() {
