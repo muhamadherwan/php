@@ -27,7 +27,11 @@ class Router {
     // detect the current routes
     public function resolve() {
         // if no path, set to home 
-       $currentUrl = $_SERVER['PATH_INFO'] ?? '/'; 
+       $currentUrl = $_SERVER['REQUEST_URI'] ?? '/';
+       
+       if (strpos($currentUrl, '?') !== false) {
+           $currentUrl = substr($currentUrl, 0, strpos($currentUrl,'?'));
+       }
        
        $method = $_SERVER['REQUEST_METHOD'];
 
