@@ -51,4 +51,11 @@ class Database {
         $statement->bindValue(':date', date('Y-m-d H:i:s'));
         $statement->execute();
     }
+
+    public function deleteProduct($id)
+    {
+        $statement = $this->pdo->prepare('DELETE FROM products WHERE id = :id');
+        $statement->bindValue(':id', $id);
+        return $statement->execute();
+    }
 }

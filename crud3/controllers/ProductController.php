@@ -47,11 +47,6 @@ class ProductController {
             
         }
 
-        echo '<pre>';
-        var_dump($productData);
-        echo '</pre>';
-    
-
         // render/output the page layout with the data
         $router->renderView('products/create', [
             'product' => $productData,
@@ -63,7 +58,15 @@ class ProductController {
         echo "update page";
     }
 
-    public function delete() {
-        echo "delete page";
-    }
+    public function delete(Router $router) {
+        $id = $_POST['id'] ?? null;
+
+        if (!$id) {
+            header('Location: /products');
+            exit;
+        }
+        $router->db->deleteProduct($id);
+        header('Location: /products');
+        exit;
+     }
 }
