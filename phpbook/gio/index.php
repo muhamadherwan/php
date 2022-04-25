@@ -337,7 +337,28 @@ echo $sum3(function($element){
 },1,2,3,4);
 
 // arrow function
+// arrow function only can be use in single line.
 $array = [1,2,4,5];
 
 $array2 = array_map(fn($number) => $number * $number, $array);
 print_r($array);
+
+/* common useful array functions:
+* array_chunks = split and array into chunks
+
+* array_combine = combine 2 or more array to create a new array
+
+* array_filters = iterate over each array values, and acces the value of given * callback. If the return from the callback is true, the element is return to 
+* the the result array, else the element will be discard.
+
+* array_keys = get the key in an array
+
+* array_map = apply callback to each element of the arrays
+
+* array_merge = merge arrays to form new array
+
+* array_reduce
+
+* array_search = search element in array
+
+* in_array = search element in array 
