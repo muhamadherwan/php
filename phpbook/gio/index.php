@@ -361,4 +361,19 @@ print_r($array);
 
 * array_search = search element in array
 
-* in_array = search element in array 
+* in_array = search element in array
+
+* ksort = sort array by keys
+* asort = sort array by values
+* usort = sort array by custom functions
+
+/* Check and set php.ini config */
+// check default value example
+// var_dump(ini_get('error_reporting'));
+// set new value example
+// ini_set('error_reporting', E_ALL & ~E_WARNING);
+
+
+
+
+
