@@ -83,104 +83,261 @@
 // echo nl2br($text);
 
 // ARRAYS
-$coding = ['PHP', 'Python', 'Java'];
+// $coding = ['PHP', 'Python', 'Java'];
 
-echo $coding['1'];
+// echo $coding['1'];
 
-// set new value to array s
-$coding[1] = 'C++';
+// // set new value to array s
+// $coding[1] = 'C++';
 
-echo "<br>";
+// echo "<br>";
 
-print_r($coding);
+// print_r($coding);
 
-echo "<br>";
-// count item in array
-echo count($coding);
+// echo "<br>";
+// // count item in array
+// echo count($coding);
 
-// push new element into array
-$coding[] = 'ruby';
-// push multiple element
-array_push($coding, 'laravel', 'rails');
+// // push new element into array
+// $coding[] = 'ruby';
+// // push multiple element
+// array_push($coding, 'laravel', 'rails');
 
-
-echo '<pre>'; var_dump($coding); echo '</pre>';
-
-// ASSOCIATEVE ARRAYS ( Array with key and values)
-$coding2 = [
-    'php' => '8.0',
-    'phytion' => '3.9'
-];
-
-// add element to assoc array
-$coding2['go'] = '1.5';
-
-// using var
-$new = 'javascript';
-$coding2[$new] = 'ES6';
-
-
-// echo '<pre>'; var_dump($coding2); echo '</pre>';
-
-// MULTIDIMENSIONAL ARRAYS
-$coding3 = [
-    'php' => [
-        'creator' => 'rasmus',
-        'extension' => '.php',
-        'isOpenSource' => true,
-        'versions' => [
-            ['version' => 8, 'date' => '2020'],
-            ['version' => 7, 'date' => '2019'], 
-        ],
-    ],
-    'phyton' => [
-        'creator' => 'guido',
-        'extension' => '.py',
-        'isOpenSource' => true,
-        'versions' => [
-            ['version' => 3.9, 'date' => '2020'],
-            ['version' => 3.8, 'date' => '2019'], 
-        ],
-    ],
-];
-
-// echo '<pre>'; var_dump($coding3); echo '</pre>';
-
-// echo $coding3['php']['versions'][0]['date'];
-// echo $coding3['php']['extension'];
-
-// removing array value at the end
-// array_pop($coding);
 
 // echo '<pre>'; var_dump($coding); echo '</pre>';
 
-// removing array value at the front
-array_shift($coding);
+// // ASSOCIATEVE ARRAYS ( Array with key and values)
+// $coding2 = [
+//     'php' => '8.0',
+//     'phytion' => '3.9'
+// ];
 
-// echo '<pre>'; var_dump($coding); echo '</pre>';
+// // add element to assoc array
+// $coding2['go'] = '1.5';
 
-// set key in array
-$array = ['a', 'b', 50 => 'c', 'd' ];
+// // using var
+// $new = 'javascript';
+// $coding2[$new] = 'ES6';
 
-echo '<pre>'; var_dump($array); echo '</pre>';
 
-// remove key from array
-unset($array[50]);
-echo '<pre>'; var_dump($array); echo '</pre>';
+// // echo '<pre>'; var_dump($coding2); echo '</pre>';
 
-// unset($array);
+// // MULTIDIMENSIONAL ARRAYS
+// $coding3 = [
+//     'php' => [
+//         'creator' => 'rasmus',
+//         'extension' => '.php',
+//         'isOpenSource' => true,
+//         'versions' => [
+//             ['version' => 8, 'date' => '2020'],
+//             ['version' => 7, 'date' => '2019'], 
+//         ],
+//     ],
+//     'phyton' => [
+//         'creator' => 'guido',
+//         'extension' => '.py',
+//         'isOpenSource' => true,
+//         'versions' => [
+//             ['version' => 3.9, 'date' => '2020'],
+//             ['version' => 3.8, 'date' => '2019'], 
+//         ],
+//     ],
+// ];
+
+// // echo '<pre>'; var_dump($coding3); echo '</pre>';
+
+// // echo $coding3['php']['versions'][0]['date'];
+// // echo $coding3['php']['extension'];
+
+// // removing array value at the end
+// // array_pop($coding);
+
+// // echo '<pre>'; var_dump($coding); echo '</pre>';
+
+// // removing array value at the front
+// array_shift($coding);
+
+// // echo '<pre>'; var_dump($coding); echo '</pre>';
+
+// // set key in array
+// $array = ['a', 'b', 50 => 'c', 'd' ];
+
 // echo '<pre>'; var_dump($array); echo '</pre>';
 
-// casting to array
-$x = 5;
-var_dump(array($x));
+// // remove key from array
+// unset($array[50]);
+// echo '<pre>'; var_dump($array); echo '</pre>';
+
+// // unset($array);
+// // echo '<pre>'; var_dump($array); echo '</pre>';
+
+// // casting to array
+// $x = 5;
+// var_dump(array($x));
 
 
-$arr = ['a' => 1, 'b' => null];
+// $arr = ['a' => 1, 'b' => null];
 
-// check array key is exist
-var_dump(array_key_exists('a', $arr));
+// // check array key is exist
+// var_dump(array_key_exists('a', $arr));
 
-echo '<br>';
-// check array key is exist and the value is not null
-var_dump(isset($array['a']));
+// echo '<br>';
+// // check array key is exist and the value is not null
+// var_dump(isset($array['a']));
+
+// echo '<br>';
+
+// // foreach
+// $user = [
+//     'name' => 'taylor',
+//     'framework' => 'laravel',
+//     'product' => ['forge', 'spark', 'envourge'],
+// ];
+
+// foreach ($user as $key => $value) {
+//     if (is_array($value)) {
+//         echo $key . ':' . implode(',', $value);
+//     } else {
+//         echo $key . ':' . $value . '<br>';
+//     }   
+// }
+
+// // destroy the $value variable after use in foreach
+// unset($value);
+
+
+// echo '<br><br>';
+
+// // loops without curly bracket syntax
+// foreach ($user as $key => $value) :
+//     if (is_array($value)) {
+//         echo $key . ':' . implode(',', $value);
+//     } else {
+//         echo $key . ':' . $value . '<br>';
+//     }   
+// endforeach;
+
+
+// // match. only in php 8. alternative to switch. strict cases.
+// // $status = 1;
+
+// // $statusDisplay = match($status) {
+// //     1 => 'Paid',
+// //     2, 3 => 'Declined,',
+// //     0 => 'Pending',
+// //     default => 'Unknown',
+// // };
+
+// // echo $statusDisplay;
+
+
+// // advance fuction using strict type
+
+// // enforce code to use strict type:
+// declare(strict_type=1);
+// // set the return value type
+// // exp: set the return value to be integer or null
+// function foo(): ?int {
+//     return 1;
+// }
+
+// // set return multiply type (php8 only).
+// // exp set to null,int and float only
+// function fooa(): int|float {
+//     return 1;
+// }
+
+// // set return all multiply type (php8 only).
+// function foob(): mixed {
+//     return 1;
+// }
+
+// // set type hinting on function parameters
+// // exp set parameter x and y to accept only int and float
+// // set default value for y perimeter
+// // set the return value only in int or float type
+// function fooc(int|float $x, int|float $y = 10): int|float {
+//     return $x + $y;
+// } 
+
+// /* using the splat operator ... (php 8)
+// * use as parameter so can pass many argument in arrays
+// * set the first, second param and third parameter as int or float so 
+// * in this exp we use array_sum to sum up all the argument values
+// * set the return value to be in int or float
+// */
+// function sum(int|float $x, int|float $y, int|float ...$numbers): int|float {
+//     return $x + $y + array_sum($numbers);
+// }
+
+// $a = 6.0;
+// $b = 7;
+// echo sum($a, $b, 50, 100, 25) . '<br>';
+
+// // unpack array with the splat operator. exp:
+// $a = 6.0;
+// $b = 7;
+// $numbers = ['50', '100', '25']
+// echo sum($a, $b, ...$numbers) . '<br>';
+
+
+// // php 8 name argument. exp:
+// echo sum(a: $a, b: $b);
+
+// // global variable
+// $GLOBALS['var_name'];
+// // static variable
+// static $value = 'some values';
+
+/* variable function
+* set function to variable and then call it using the variable.
+*/
+function sum(int|float ...$numbers): int|float {
+    return array_sum($numbers);
+}
+
+$x = 'sum';
+
+// use is_callable() to check if the function exist
+if (is_callable($)){
+    echo $x(1, 2, 3, 4);
+} else {
+    echo "not callable";
+}
+
+
+/* anonymous function.
+* function not has name and an experession assign to variable  
+* and then call it using the variabal.
+* use the 'use' syntax to access parent variable
+*/ 
+
+$x = 7;
+$sum2 = function (int|float ...$numbers) use ($x): int|float {
+    echo $x;
+    return array_sum($numbers);
+};
+
+echo sum2(1,2,3,4);
+
+
+// callback: function in function
+$array = [1,2,4,5];
+
+$array2 = array_map(function($element) {
+    return $element * 2;}, $array);
+
+// call back using anonymous function and 'callable' syntax
+$sum3 = function(callable $callback, int|float ...$numbers ): int|float {
+    return $callback(array_sum($numbers));
+}
+
+echo $sum3(function($element){
+    return $element * 2;
+},1,2,3,4);
+
+// arrow function
+$array = [1,2,4,5];
+
+$array2 = array_map(fn($number) => $number * $number, $array);
+print_r($array);
