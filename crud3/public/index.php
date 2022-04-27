@@ -19,6 +19,7 @@ $router->get('/products/update', [ProductController::class, 'update']);
 $router->post('/products/update', [ProductController::class, 'update']);
 $router->post('/products/delete', [ProductController::class, 'delete']);
 
+// var_dump($_SERVER['REQUEST_URI']);
 // // detect the current routes
 // // and execute the function
 $router->resolve();

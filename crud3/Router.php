@@ -26,9 +26,10 @@ class Router {
 
     // detect the current routes
     public function resolve() {
+
         // if no path, set to home 
        $currentUrl = $_SERVER['REQUEST_URI'] ?? '/';
-       
+
        if (strpos($currentUrl, '?') !== false) {
            $currentUrl = substr($currentUrl, 0, strpos($currentUrl,'?'));
        }

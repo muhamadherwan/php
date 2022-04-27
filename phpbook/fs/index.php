@@ -37,7 +37,35 @@ file_exists('lorem.txt'); // return true if exist
 // echo filesize('lorem.txt');
 
 // delete file
-unlink('lorem.txt');
+// unlink('lorem.txt');
 
 // ref:
 // https://www.php.net/manual/en/book.filesystem.php
+
+// =========================================
+// from learning php the righ way
+// ========================================= 
+
+// create directory recursive (php8)
+// mkdir('foo/bar', recursive: true);
+
+// example other way working with files
+
+// create new file
+file_put_contents('foo.txt', "First line");
+
+// check file exist before opening its
+if (! file_exists('foo.txt')) {
+    echo 'file not found';
+    return;
+}
+
+// open the file as resource
+$file = fopen('foo.txt', 'r');
+
+// read the file contents line by line
+while (($line = fgets($file)) != false) {
+    echo $line . '<br>';
+}
+
+fclose($file);
