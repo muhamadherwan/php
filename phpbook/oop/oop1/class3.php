@@ -43,6 +43,13 @@ echo $laravel->setName('TO').PHP_EOL;
 
 $laravel->setEyeColor('red');
 echo $laravel->getEyeColor().PHP_EOL;
+
+// delete this object
+// unset($laravel);
+// echo $laravel->getEyeColor();
+
+
+
 // var_dump($laravel);
 
 
