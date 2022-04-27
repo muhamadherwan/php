@@ -6,6 +6,8 @@ class Person {
     public $name;
     private $eyeColor;
     private $age;
+    // static properties
+    public static $drivingAge = 17;
 
     // constructors
     public function __construct( $name, $eyeColor, $age) {
@@ -31,6 +33,17 @@ class Person {
         return $this->eyeColor;
     }
 
+    // setter method using static method
+    public function setDrivingAge($dA) {
+        // use "self::" to refferance properties in the class
+        self::$drivingAge = $dA;
+    }
+
+    // setter method to static property using non static method
+    public function setDrivingAge2($dA){
+        self::$drivingAge = $dA;
+    }
+
     // destructors
     public function __destruct() {
         echo "this is the end of the class".PHP_EOL;
@@ -39,22 +52,20 @@ class Person {
 
 
 $laravel = new Person('taylor otwell', 'blue', 41);
-echo $laravel->setName('TO').PHP_EOL;
+// /echo $laravel->setName('TO').PHP_EOL;
 
-$laravel->setEyeColor('red');
-echo $laravel->getEyeColor().PHP_EOL;
+// acces static properties using the class name and "::" syntax. exp:
+echo Person::$drivingAge.PHP_EOL;
 
-// delete this object
-// unset($laravel);
-// echo $laravel->getEyeColor();
+// set the static properties using static methods
+Person::setDrivingAge(15);
+
+echo Person::$drivingAge.PHP_EOL;
+
+// set the static property using non static method
+$laravel->setDrivingAge2(21);
+echo Person::$drivingAge.PHP_EOL;
 
 
 
-// var_dump($laravel);
 
-
-// $ror = new Person('DHH', 'pink', 44);
-// echo $ror->setName('David').PHP_EOL;
-
-// echo $laravel->name.PHP_EOL;
-// var_dump($ror);
