@@ -11,9 +11,9 @@ class Car {
         echo "car class init!".PHP_EOL;
     }
 
-    public function setCarColor( $color ) {
+    public function setCarColor(string $color='black' ) {
         $this->color = $color;
-    }
+       }
 
     public function getCarColor() {
         return $this->color;
