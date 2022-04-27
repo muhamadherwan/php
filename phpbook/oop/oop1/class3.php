@@ -12,6 +12,7 @@ class Person {
         $this->name = $name;
         $this->eyeColor = $eyeColor;
         $this->age = $age;
+        echo "this class has been instantiated".PHP_EOL;
     }
 
     // methods 
@@ -28,6 +29,11 @@ class Person {
     // eye color getter methods
     public function getEyeColor() {
         return $this->eyeColor;
+    }
+
+    // destructors
+    public function __destruct() {
+        echo "this is the end of the class".PHP_EOL;
     }
 }
 
