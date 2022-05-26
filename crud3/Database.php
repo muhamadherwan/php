@@ -17,7 +17,7 @@ class Database {
     public function __construct() {
 
         // connect to database
-        $this->pdo = new PDO('mysql:host=localhost;port=3306;dbname=product_crud', 'root', 'wasd1234');
+        $this->pdo = new PDO('mysql:host=localhost;port=3306;dbname=product_crud', 'root', 'root');
         // if cant connect, throw error
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
